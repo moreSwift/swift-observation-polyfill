@@ -1,0 +1,3 @@
+[submodule "swift-perception"]
+	path = swift-perception
+	url = https://github.com/pointfreeco/swift-perception
