@@ -93,6 +93,28 @@ def do_replacements(text: str, is_code: bool = False, filename: Optional[str] = 
             )
         )
 
+    if filename in ["Macros.swift", "Observable.swift"]:
+        # Fix availability annotations
+        text = (
+            text
+            .replace(
+                "iOS, deprecated: 26",
+                "iOS, obsoleted: 17",
+            )
+            .replace(
+                "macOS, deprecated: 26",
+                "macOS, obsoleted: 14",
+            )
+            .replace(
+                "tvOS, deprecated: 26",
+                "tvOS, obsoleted: 17",
+            )
+            .replace(
+                "watchOS, deprecated: 26",
+                "watchOS, obsoleted: 10",
+            )
+        )
+
     if filename == "Extensions.swift":
         # Update hasMacroApplication to support namespaced identifiers (which get
         # parsed as a different token sequence).

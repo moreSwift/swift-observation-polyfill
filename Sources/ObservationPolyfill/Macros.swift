@@ -33,10 +33,10 @@
   ///            self.needsRepairs = needsRepairs
   ///        }
   ///     }
-  @available(iOS, deprecated: 26, renamed: "Observation.Observable")
-  @available(macOS, deprecated: 26, renamed: "Observation.Observable")
-  @available(watchOS, deprecated: 26, renamed: "Observation.Observable")
-  @available(tvOS, deprecated: 26, renamed: "Observation.Observable")
+  @available(iOS, obsoleted: 17, renamed: "Observation.Observable")
+  @available(macOS, obsoleted: 14, renamed: "Observation.Observable")
+  @available(watchOS, obsoleted: 10, renamed: "Observation.Observable")
+  @available(tvOS, obsoleted: 17, renamed: "Observation.Observable")
   @attached(
     member,
     names: named(_$observationPolyfillRegistrar),
@@ -55,10 +55,10 @@
   ///
   /// The ``ObservationPolyfill`` module uses this macro. Its use outside of the
   /// framework isn't necessary.
-  @available(iOS, deprecated: 26, renamed: "ObservationTracked")
-  @available(macOS, deprecated: 26, renamed: "ObservationTracked")
-  @available(watchOS, deprecated: 26, renamed: "ObservationTracked")
-  @available(tvOS, deprecated: 26, renamed: "ObservationTracked")
+  @available(iOS, obsoleted: 17, renamed: "ObservationTracked")
+  @available(macOS, obsoleted: 14, renamed: "ObservationTracked")
+  @available(watchOS, obsoleted: 10, renamed: "ObservationTracked")
+  @available(tvOS, obsoleted: 17, renamed: "ObservationTracked")
   @attached(accessor, names: named(init), named(get), named(set), named(_modify))
   @attached(peer, names: prefixed(_))
   public macro ObservationTracked() =
@@ -71,10 +71,10 @@
   /// By default, an object can perceive any property of a perceptible type that
   /// is accessible to the perceiving object. To prevent observation of an
   /// accessible property, attach the `ObservationIgnored` macro to the property.
-  @available(iOS, deprecated: 26, renamed: "ObservationIgnored")
-  @available(macOS, deprecated: 26, renamed: "ObservationIgnored")
-  @available(watchOS, deprecated: 26, renamed: "ObservationIgnored")
-  @available(tvOS, deprecated: 26, renamed: "ObservationIgnored")
+  @available(iOS, obsoleted: 17, renamed: "ObservationIgnored")
+  @available(macOS, obsoleted: 14, renamed: "ObservationIgnored")
+  @available(watchOS, obsoleted: 10, renamed: "ObservationIgnored")
+  @available(tvOS, obsoleted: 17, renamed: "ObservationIgnored")
   @attached(accessor, names: named(willSet))
   public macro ObservationIgnored() =
     #externalMacro(module: "ObservationPolyfillMacros", type: "ObservationIgnoredMacro")
