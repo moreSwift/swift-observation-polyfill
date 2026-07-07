@@ -41,6 +41,7 @@ def do_replacements(text: str, is_code: bool = False, filename: Optional[str] = 
             .replace("any Observable", "any Observation.Observable")
             .replace(", Observable", ", Observation.Observable")
             .replace(": Observable", ": Observation.Observable")
+            .replace("withObservationTracking(", "Observation.withObservationTracking(")
         )
 
     text = (
@@ -120,7 +121,7 @@ for (dir, subdirs, files) in os.walk(src):
         os.mkdir(dst_dir)
 
     for file in files:
-        if file in [".DS_Store", "README.md", ".gitignore"]:
+        if file in [".DS_Store", "README.md", ".gitignore", ".git"]:
             continue
 
         src_file = os.path.join(dir, file)
