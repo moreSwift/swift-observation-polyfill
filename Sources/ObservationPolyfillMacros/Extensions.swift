@@ -112,7 +112,7 @@ extension VariableDeclSyntax {
     for attribute in attributes {
       switch attribute {
       case .attribute(let attr):
-        if attr.attributeName.tokens(viewMode: .all).map({ $0.tokenKind }) == [.identifier(name)] {
+        if attr.trimmedDescription == "@\(name)" {
           return true
         }
       default:

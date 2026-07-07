@@ -356,8 +356,8 @@ extension ObservableMacro: MemberAttributeMacro {
     }
 
     // dont apply to ignored properties or properties that are already flagged as tracked
-    if property.hasMacroApplication(ObservableMacro.ignoredMacroName) ||
-       property.hasMacroApplication(ObservableMacro.trackedMacroName) {
+    if (property.hasMacroApplication(ObservableMacro.ignoredMacroName) || property.hasMacroApplication("ObservationIgnored") || property.hasMacroApplication("SwiftCrossUI.ObservationIgnored")) ||
+       (property.hasMacroApplication(ObservableMacro.trackedMacroName) || property.hasMacroApplication("ObservationTracked") || property.hasMacroApplication("SwiftCrossUI.ObservationTracked")) {
       return []
     }
     
@@ -422,7 +422,7 @@ public struct ObservationTrackedMacro: AccessorMacro {
     }
     #endif
 
-    if property.hasMacroApplication(ObservableMacro.ignoredMacroName) {
+    if (property.hasMacroApplication(ObservableMacro.ignoredMacroName) || property.hasMacroApplication("ObservationIgnored") || property.hasMacroApplication("SwiftCrossUI.ObservationIgnored")) {
       return []
     }
 
@@ -499,7 +499,7 @@ extension ObservationTrackedMacro: PeerMacro {
     }
     #endif
 
-    if property.hasMacroApplication(ObservableMacro.ignoredMacroName) {
+    if (property.hasMacroApplication(ObservableMacro.ignoredMacroName) || property.hasMacroApplication("ObservationIgnored") || property.hasMacroApplication("SwiftCrossUI.ObservationIgnored")) {
       return []
     }
     
