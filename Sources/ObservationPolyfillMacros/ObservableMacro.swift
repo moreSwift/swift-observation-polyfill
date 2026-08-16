@@ -384,11 +384,11 @@ extension ObservableMacro: ExtensionMacro {
 
     #if compiler(>=6.2)
     let decl: DeclSyntax = """
-        extension \(raw: type.trimmedDescription): \(raw: qualifiedConformanceName) {}
+        extension \(raw: type.trimmedDescription): nonisolated \(raw: qualifiedConformanceName) {}
         """
     #else
     let decl: DeclSyntax = """
-        extension \(raw: type.trimmedDescription): nonisolated \(raw: qualifiedConformanceName) {}
+        extension \(raw: type.trimmedDescription): \(raw: qualifiedConformanceName) {}
         """
     #endif
     let ext = decl.cast(ExtensionDeclSyntax.self)

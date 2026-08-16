@@ -23,12 +23,12 @@ def do_replacements(text: str, is_code: bool = False, filename: Optional[str] = 
             .replace(
                 """extension \\(raw: type.trimmedDescription): \\(raw: qualifiedConformanceName), \\
         Observation.Observable {}""",
-                "extension \\(raw: type.trimmedDescription): nonisolated \\(raw: qualifiedConformanceName) {}"
+                "extension \\(raw: type.trimmedDescription): \\(raw: qualifiedConformanceName) {}"
             )
             .replace(
                 """extension \\(raw: type.trimmedDescription): nonisolated \\(raw: qualifiedConformanceName), \\
         nonisolated Observation.Observable {}""",
-                "extension \\(raw: type.trimmedDescription): \\(raw: qualifiedConformanceName) {}"
+                "extension \\(raw: type.trimmedDescription): nonisolated \\(raw: qualifiedConformanceName) {}"
             )
             .replace('"Observable"', '"Observation.Observable"')
             .replace("@Observable", "@Observation.Observable")
